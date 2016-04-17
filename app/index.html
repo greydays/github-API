@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="EN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>GitHub API for Greydays</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body data-ng-app="app">
+    <main data-ng-controller="apiController as apictrl">
+      <section data-ng-init="apictrl.getUser()">
+        <img data-ng-src="{{apictrl.user.avatar_url}}" alt="">
+        <p>Username: {{apictrl.user.login}}</p>
+        <p>Name: {{apictrl.user.name}}</p>
+        <ul>
+          <ul>Followers: {{apictrl.user.followers}}</ul>
+          <ul>Following: {{apictrl.user.following}}</ul>
+        </ul>
+      </section>
+      <section data-ng-init="apictrl.getRepos()">
+        <h2>Repositories</h2>
+        <div data-ng-repeat="repo in apictrl.repos">
+          <a data-ng-href="{{repo.html_url}}">
+            <h3>{{repo.name}}</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Created by Ryan Flaherty</p>
+    </footer>
+    <script src="bundle.js"></script>
+  </body>
+</html>
