@@ -25,6 +25,14 @@
           </a>
         </div>
       </section>
+      <section data-ng-init="apictrl.getStarredRepos()">
+        <div data-ng-repeat="starredRepo in apictrl.starredRepos">
+          <h2>Starred Repositories</h2>
+          <a data-ng-href="{{starredRepo.url}}">
+            <h3>{{starredRepo.full_name}}</h3>
+          </a>
+        </div>
+      </section>
     </main>
     <footer>
       <p>Created by Ryan Flaherty</p>

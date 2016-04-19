@@ -6,6 +6,7 @@ app.controller('apiController', ['$http', function($http) {
 
   vm.user = {};
   vm.repos = {};
+  vm.starredRepos = {};
 
   vm.getUser = function() {
     $http.get('https://api.github.com/users/greydays')
@@ -21,6 +22,11 @@ app.controller('apiController', ['$http', function($http) {
     });
   };
 
-
+  vm.getStarredRepos = function() {
+    $http.get('https://api.github.com/users/greydays/starred')
+    .success(function(response){
+        vm.starredRepos = response;
+    });
+  };
 
 }]);
